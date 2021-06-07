@@ -125,7 +125,11 @@ def half_cardiod_x(initial, scale, resolution, turt, fill_1, fill_2):
     turt.penup()
     turt.goto(future[1])
     turt.begin_fill()
-    ellipse(begin, a, b, resolution, turt, 7/6)
+
+    # We approximate the domain=1.1 value instead of computing the angle where
+    # the tongue intersects the mouth.
+    ellipse(begin, a, b, resolution, turt, 1.1)
+
     turt.pendown()
     for t in range(t_1, t_2):
         turt.goto(position[t])
